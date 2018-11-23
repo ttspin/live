@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="nojs html css_verticalspacer" lang="ru-RU">
+<html class="nojs html" lang="ru-RU">
  <head>
 
   <meta http-equiv="Content-type" content="text/html;charset=UTF-8"/>
@@ -14,20 +14,27 @@ document.documentElement.className = document.documentElement.className.replace(
 if(typeof Muse == "undefined") window.Muse = {}; window.Muse.assets = {"required":["museutils.js", "museconfig.js", "jquery.watch.js", "require.js", "index.css"], "outOfDate":[]};
 </script>
   
-  <title>Live Stream</title>
+  <title>Live stream</title>
   <!-- CSS -->
   <link rel="stylesheet" type="text/css" href="css/site_global.css?crc=444006867"/>
-  <link rel="stylesheet" type="text/css" href="css/index.css?crc=173292147" id="pagesheet"/>
-   </head>
+  <link rel="stylesheet" type="text/css" href="css/index.css?crc=119210284" id="pagesheet"/>
+    <!--custom head HTML-->
+  <style type="text/css">
+html,body{
+overflow-y:hidden;
+overflow-x:hidden;
+}
+</style>
+ </head>
  <body>
 
   <div class="clearfix borderbox" id="page"><!-- column -->
-   <div class="colelem" id="u102"><!-- custom html -->
-    <iframe src="https://player.twitch.tv/?channel=spinclub1" frameborder="0" allowfullscreen="true" scrolling="no" width = "100%" onload="this.style.height=document.documentElement.scrollHeight - 50 +'px';">
+   <div class="browser_width colelem" id="u94-bw">
+    <div id="u94"><!-- custom html -->
+     <iframe src="https://player.twitch.tv/?channel=spinclub1" frameborder="0" allowfullscreen="true" scrolling="no" width = "100%" onload ="this.style.height=document.documentElement.scrollHeight +'px';">
 </iframe>
-
+    </div>
    </div>
-   <div class="verticalspacer" data-offset-top="484" data-content-above-spacer="483" data-content-below-spacer="62" data-sizePolicy="fixed" data-pintopage="page_fixedLeft"></div>
   </div>
   <!-- Other scripts -->
   <script type="text/javascript">
@@ -44,8 +51,9 @@ var muse_init=function(){require.config({baseUrl:""});require(["jquery","museuti
 window.Muse.assets.check($);/* body */
 Muse.Utils.transformMarkupToFixBrowserProblemsPreInit();/* body */
 Muse.Utils.prepHyperlinks(true);/* body */
+Muse.Utils.resizeHeight('.browser_width');/* resize height */
+Muse.Utils.requestAnimationFrame(function() { $('body').addClass('initialized'); });/* mark body as initialized */
 Muse.Utils.makeButtonsVisibleAfterSettingMinWidth();/* body */
-Muse.Utils.fullPage('#page');/* 100% height page */
 Muse.Utils.showWidgetsWhenReady();/* body */
 Muse.Utils.transformMarkupToFixBrowserProblems();/* body */
 }catch(b){if(b&&"function"==typeof b.notify?b.notify():Muse.Assert.fail("Error calling selector function: "+b),false)throw b;}})})};
